@@ -1,0 +1,1 @@
+{"version":"0.1","connections":[{"details":{"protocol":"tds","address":{"server":"cloud-workspace-ondemand.sql.azuresynapse.net","database":"Database_ECommerce"}},"storageMode":"DirectQuery"}]}

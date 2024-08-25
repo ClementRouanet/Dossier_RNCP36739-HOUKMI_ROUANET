@@ -1,0 +1,259 @@
+{
+	"jobConfig": {
+		"name": "order_reviews_job",
+		"description": "",
+		"role": "arn:aws:iam::421189326716:role/glue_grp6",
+		"command": "glueetl",
+		"version": "4.0",
+		"runtime": null,
+		"workerType": "G.1X",
+		"numberOfWorkers": 2,
+		"maxCapacity": 2,
+		"jobRunQueuingEnabled": null,
+		"maxRetries": 0,
+		"timeout": 2880,
+		"maxConcurrentRuns": 1,
+		"security": "none",
+		"scriptName": "order_reviews_job.py",
+		"scriptLocation": "s3://aws-glue-assets-421189326716-us-east-1/scripts/",
+		"language": "python-3",
+		"spark": true,
+		"sparkConfiguration": "standard",
+		"jobParameters": [],
+		"tags": [],
+		"jobMode": "DEVELOPER_MODE",
+		"createdOn": "2024-07-01T13:11:28.966Z",
+		"developerMode": true,
+		"connectionsList": [
+			"Mysql connection"
+		],
+		"temporaryDirectory": "s3://aws-glue-assets-421189326716-us-east-1/temporary/",
+		"logging": true,
+		"glueHiveMetastore": true,
+		"etlAutoTuning": false,
+		"metrics": true,
+		"observabilityMetrics": true,
+		"bookmark": "job-bookmark-disable",
+		"sparkPath": "s3://aws-glue-assets-421189326716-us-east-1/sparkHistoryLogs/",
+		"flexExecution": false,
+		"minFlexWorkers": null,
+		"maintenanceWindow": null
+	},
+	"dag": {
+		"node-1718374318942": {
+			"nodeId": "node-1718374318942",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [
+				"node-1718374312043"
+			],
+			"name": "MySQL",
+			"generatedNodeName": "MySQL_node1718374318942",
+			"classification": "DataSink",
+			"type": "MySQL",
+			"streamingBatchInterval": 100,
+			"database": "raw_data",
+			"table": "raw_data_order_reviews",
+			"format": null,
+			"partitionKeys": [],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1718374298170": {
+			"nodeId": "node-1718374298170",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "Amazon S3",
+			"generatedNodeName": "AmazonS3_node1718374298170",
+			"classification": "DataSource",
+			"type": "S3",
+			"isCatalog": false,
+			"format": "csv",
+			"paths": [
+				"s3://grp6-pfe-data-engineering/input-data/csv/order_reviews.csv"
+			],
+			"compressionType": null,
+			"exclusions": [],
+			"groupFiles": null,
+			"groupSize": null,
+			"recurse": true,
+			"maxBand": null,
+			"maxFilesInBand": null,
+			"additionalOptions": {
+				"boundedSize": null,
+				"boundedFiles": null,
+				"enableSamplePath": false,
+				"samplePath": "s3://grp6-pfe-data-engineering/input-data/csv/order_reviews.csv",
+				"boundedOption": null
+			},
+			"separator": ",",
+			"escaper": "",
+			"quoteChar": "\"",
+			"multiline": null,
+			"withHeader": true,
+			"writeHeader": null,
+			"skipFirst": null,
+			"optimizePerformance": false,
+			"outputSchemas": [
+				[
+					{
+						"key": "review_id",
+						"fullPath": [
+							"review_id"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "order_id",
+						"fullPath": [
+							"order_id"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "review_score",
+						"fullPath": [
+							"review_score"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "review_comment_title",
+						"fullPath": [
+							"review_comment_title"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "review_comment_message",
+						"fullPath": [
+							"review_comment_message"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "review_creation_date",
+						"fullPath": [
+							"review_creation_date"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "review_answer_timestamp",
+						"fullPath": [
+							"review_answer_timestamp"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					}
+				]
+			],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1718374312043": {
+			"nodeId": "node-1718374312043",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [
+				"node-1718374298170"
+			],
+			"name": "Change Schema",
+			"generatedNodeName": "ChangeSchema_node1718374312043",
+			"classification": "Transform",
+			"type": "ApplyMapping",
+			"mapping": [
+				{
+					"toKey": "review_id",
+					"fromPath": [
+						"review_id"
+					],
+					"toType": "string",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "order_id",
+					"fromPath": [
+						"order_id"
+					],
+					"toType": "string",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "review_score",
+					"fromPath": [
+						"review_score"
+					],
+					"toType": "int",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "review_comment_title",
+					"fromPath": [
+						"review_comment_title"
+					],
+					"toType": "string",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "review_comment_message",
+					"fromPath": [
+						"review_comment_message"
+					],
+					"toType": "string",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "review_creation_date",
+					"fromPath": [
+						"review_creation_date"
+					],
+					"toType": "timestamp",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "review_answer_timestamp",
+					"fromPath": [
+						"review_answer_timestamp"
+					],
+					"toType": "timestamp",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				}
+			],
+			"parentsValid": true,
+			"calculatedType": "",
+			"codeGenVersion": 2
+		}
+	},
+	"hasBeenSaved": false,
+	"usageProfileName": null,
+	"script": "import sys\nfrom awsglue.transforms import *\nfrom awsglue.utils import getResolvedOptions\nfrom pyspark.context import SparkContext\nfrom awsglue.context import GlueContext\nfrom awsglue.job import Job\nimport pyspark.sql.functions as F\n\nargs = getResolvedOptions(sys.argv, ['JOB_NAME'])\nsc = SparkContext()\nglueContext = GlueContext(sc)\nspark = glueContext.spark_session\njob = Job(glueContext)\njob.init(args['JOB_NAME'], args)\n\n# Script generated for node Amazon S3\nAmazonS3_node1718374298170 = glueContext.create_dynamic_frame.from_options(\n    format_options={\n        \"quoteChar\": \"\\\"\", \n        \"withHeader\": True, \n        \"separator\": \",\", \n        \"optimizePerformance\": False\n    }, \n    connection_type=\"s3\", \n    format=\"csv\", \n    connection_options={\n        \"paths\": [\"s3://grp6-pfe-data-engineering/input-data/csv/order_reviews.csv\"], \n        \"recurse\": True\n    }, \n    transformation_ctx=\"AmazonS3_node1718374298170\"\n)\n\n# Script generated for node Change Schema\nChangeSchema_node1718374312043 = ApplyMapping.apply(\n    frame=AmazonS3_node1718374298170, \n    mappings=[\n        (\"review_id\", \"string\", \"review_id\", \"string\"), \n        (\"order_id\", \"string\", \"order_id\", \"string\"), \n        (\"review_score\", \"string\", \"review_score\", \"int\"), \n        (\"review_comment_title\", \"string\", \"review_comment_title\", \"string\"), \n        (\"review_comment_message\", \"string\", \"review_comment_message\", \"string\"), \n        (\"review_creation_date\", \"string\", \"review_creation_date\", \"timestamp\"), \n        (\"review_answer_timestamp\", \"string\", \"review_answer_timestamp\", \"timestamp\")\n    ], \n    transformation_ctx=\"ChangeSchema_node1718374312043\"\n)\n\n# Convert dynamic frame to DataFrame\ndf = ChangeSchema_node1718374312043.toDF()\n\n# JDBC connection options\njdbc_url = \"jdbc:mysql://database-grp6.chcmvnn5gnpv.us-east-1.rds.amazonaws.com:3306/raw_data\"\njdbc_properties = {\n    \"user\": \"admin\",\n    \"password\": \"salahclement\",\n    \"driver\": \"com.mysql.jdbc.Driver\"\n}\n\n# Write the DataFrame to RDS in overwrite mode\ndf.write.jdbc(\n    url=jdbc_url, \n    table=\"order_reviews\", \n    mode=\"overwrite\", \n    properties=jdbc_properties\n)\n\njob.commit()\n"
+}

@@ -1,0 +1,297 @@
+{
+	"jobConfig": {
+		"name": "products_job",
+		"description": "",
+		"role": "arn:aws:iam::421189326716:role/glue_grp6",
+		"command": "glueetl",
+		"version": "4.0",
+		"runtime": null,
+		"workerType": "G.1X",
+		"numberOfWorkers": 2,
+		"maxCapacity": 2,
+		"jobRunQueuingEnabled": null,
+		"maxRetries": 0,
+		"timeout": 2880,
+		"maxConcurrentRuns": 1,
+		"security": "none",
+		"scriptName": "products_job.py",
+		"scriptLocation": "s3://aws-glue-assets-421189326716-us-east-1/scripts/",
+		"language": "python-3",
+		"spark": true,
+		"sparkConfiguration": "standard",
+		"jobParameters": [],
+		"tags": [],
+		"jobMode": "DEVELOPER_MODE",
+		"createdOn": "2024-07-01T13:24:28.461Z",
+		"developerMode": true,
+		"connectionsList": [
+			"Mysql connection"
+		],
+		"temporaryDirectory": "s3://aws-glue-assets-421189326716-us-east-1/temporary/",
+		"logging": true,
+		"glueHiveMetastore": true,
+		"etlAutoTuning": false,
+		"metrics": true,
+		"observabilityMetrics": true,
+		"bookmark": "job-bookmark-disable",
+		"sparkPath": "s3://aws-glue-assets-421189326716-us-east-1/sparkHistoryLogs/",
+		"flexExecution": false,
+		"minFlexWorkers": null,
+		"maintenanceWindow": null
+	},
+	"dag": {
+		"node-1718374318942": {
+			"nodeId": "node-1718374318942",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [
+				"node-1718374312043"
+			],
+			"name": "MySQL",
+			"generatedNodeName": "MySQL_node1718374318942",
+			"classification": "DataSink",
+			"type": "MySQL",
+			"streamingBatchInterval": 100,
+			"database": "raw_data",
+			"table": "raw_data_products",
+			"format": null,
+			"partitionKeys": [],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1718374298170": {
+			"nodeId": "node-1718374298170",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [],
+			"name": "Amazon S3",
+			"generatedNodeName": "AmazonS3_node1718374298170",
+			"classification": "DataSource",
+			"type": "S3",
+			"isCatalog": false,
+			"format": "csv",
+			"paths": [
+				"s3://grp6-pfe-data-engineering/input-data/csv/products.csv"
+			],
+			"compressionType": null,
+			"exclusions": [],
+			"groupFiles": null,
+			"groupSize": null,
+			"recurse": true,
+			"maxBand": null,
+			"maxFilesInBand": null,
+			"additionalOptions": {
+				"boundedSize": null,
+				"boundedFiles": null,
+				"enableSamplePath": false,
+				"samplePath": "s3://grp6-pfe-data-engineering/input-data/csv/products.csv",
+				"boundedOption": null
+			},
+			"separator": ",",
+			"escaper": "",
+			"quoteChar": "\"",
+			"multiline": null,
+			"withHeader": true,
+			"writeHeader": null,
+			"skipFirst": null,
+			"optimizePerformance": false,
+			"outputSchemas": [
+				[
+					{
+						"key": "product_id",
+						"fullPath": [
+							"product_id"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "product_category_name",
+						"fullPath": [
+							"product_category_name"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "product_name_lenght",
+						"fullPath": [
+							"product_name_lenght"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "product_description_lenght",
+						"fullPath": [
+							"product_description_lenght"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "product_photos_qty",
+						"fullPath": [
+							"product_photos_qty"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "product_weight_g",
+						"fullPath": [
+							"product_weight_g"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "product_length_cm",
+						"fullPath": [
+							"product_length_cm"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "product_height_cm",
+						"fullPath": [
+							"product_height_cm"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					},
+					{
+						"key": "product_width_cm",
+						"fullPath": [
+							"product_width_cm"
+						],
+						"type": "string",
+						"glueStudioType": null,
+						"children": null
+					}
+				]
+			],
+			"calculatedType": "",
+			"codeGenVersion": 2
+		},
+		"node-1718374312043": {
+			"nodeId": "node-1718374312043",
+			"dataPreview": false,
+			"previewAmount": 0,
+			"inputs": [
+				"node-1718374298170"
+			],
+			"name": "Change Schema",
+			"generatedNodeName": "ChangeSchema_node1718374312043",
+			"classification": "Transform",
+			"type": "ApplyMapping",
+			"mapping": [
+				{
+					"toKey": "product_id",
+					"fromPath": [
+						"product_id"
+					],
+					"toType": "string",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "product_category_name",
+					"fromPath": [
+						"product_category_name"
+					],
+					"toType": "string",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "product_name_lenght",
+					"fromPath": [
+						"product_name_lenght"
+					],
+					"toType": "int",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "product_description_lenght",
+					"fromPath": [
+						"product_description_lenght"
+					],
+					"toType": "int",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "product_photos_qty",
+					"fromPath": [
+						"product_photos_qty"
+					],
+					"toType": "int",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "product_weight_g",
+					"fromPath": [
+						"product_weight_g"
+					],
+					"toType": "int",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "product_length_cm",
+					"fromPath": [
+						"product_length_cm"
+					],
+					"toType": "int",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "product_height_cm",
+					"fromPath": [
+						"product_height_cm"
+					],
+					"toType": "int",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				},
+				{
+					"toKey": "product_width_cm",
+					"fromPath": [
+						"product_width_cm"
+					],
+					"toType": "int",
+					"fromType": "string",
+					"dropped": false,
+					"children": null
+				}
+			],
+			"parentsValid": true,
+			"calculatedType": "",
+			"codeGenVersion": 2
+		}
+	},
+	"hasBeenSaved": false,
+	"usageProfileName": null,
+	"script": "import sys\nfrom awsglue.transforms import *\nfrom awsglue.utils import getResolvedOptions\nfrom pyspark.context import SparkContext\nfrom awsglue.context import GlueContext\nfrom awsglue.job import Job\nimport pyspark.sql.functions as F\n\nargs = getResolvedOptions(sys.argv, ['JOB_NAME'])\nsc = SparkContext()\nglueContext = GlueContext(sc)\nspark = glueContext.spark_session\njob = Job(glueContext)\njob.init(args['JOB_NAME'], args)\n\n# Script generated for node Amazon S3\nAmazonS3_node1718374298170 = glueContext.create_dynamic_frame.from_options(\n    format_options={\n        \"quoteChar\": \"\\\"\", \n        \"withHeader\": True, \n        \"separator\": \",\", \n        \"optimizePerformance\": False\n    }, \n    connection_type=\"s3\", \n    format=\"csv\", \n    connection_options={\n        \"paths\": [\"s3://grp6-pfe-data-engineering/input-data/csv/products.csv\"], \n        \"recurse\": True\n    }, \n    transformation_ctx=\"AmazonS3_node1718374298170\"\n)\n\n# Script generated for node Change Schema\nChangeSchema_node1718374312043 = ApplyMapping.apply(\n    frame=AmazonS3_node1718374298170, \n    mappings=[\n        (\"product_id\", \"string\", \"product_id\", \"string\"), \n        (\"product_category_name\", \"string\", \"product_category_name\", \"string\"), \n        (\"product_name_lenght\", \"string\", \"product_name_lenght\", \"int\"), \n        (\"product_description_lenght\", \"string\", \"product_description_lenght\", \"int\"), \n        (\"product_photos_qty\", \"string\", \"product_photos_qty\", \"int\"), \n        (\"product_weight_g\", \"string\", \"product_weight_g\", \"int\"),\n        (\"product_length_cm\", \"string\", \"product_length_cm\", \"int\"), \n        (\"product_height_cm\", \"string\", \"product_height_cm\", \"int\"), \n        (\"product_width_cm\", \"string\", \"product_width_cm\", \"int\")\n    ], \n    transformation_ctx=\"ChangeSchema_node1718374312043\"\n)\n\n# Convert dynamic frame to DataFrame\ndf = ChangeSchema_node1718374312043.toDF()\n\n# JDBC connection options\njdbc_url = \"jdbc:mysql://database-grp6.chcmvnn5gnpv.us-east-1.rds.amazonaws.com:3306/raw_data\"\njdbc_properties = {\n    \"user\": \"admin\",\n    \"password\": \"salahclement\",\n    \"driver\": \"com.mysql.jdbc.Driver\"\n}\n\n# Write the DataFrame to RDS in overwrite mode\ndf.write.jdbc(\n    url=jdbc_url, \n    table=\"products\", \n    mode=\"overwrite\", \n    properties=jdbc_properties\n)\n\njob.commit()\n"
+}

@@ -1,0 +1,167 @@
+{
+    "Comment": "A description of my state machine",
+    "StartAt": "customers_job",
+    "States": {
+      "customers_job": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::glue:startJobRun.sync",
+        "Parameters": {
+          "JobName": "customer_job"
+        },
+        "Next": "sellers_job"
+      },
+      "sellers_job": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::glue:startJobRun.sync",
+        "Parameters": {
+          "JobName": "sellers_job"
+        },
+        "Next": "RDS"
+      },
+      "RDS": {
+        "Type": "Parallel",
+        "Next": "preprocessing_job",
+        "Branches": [
+          {
+            "StartAt": "states_name_job",
+            "States": {
+              "states_name_job": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::glue:startJobRun.sync",
+                "Parameters": {
+                  "JobName": "states_name_job"
+                },
+                "End": true
+              }
+            }
+          },
+          {
+            "StartAt": "products_translated_job",
+            "States": {
+              "products_translated_job": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::glue:startJobRun.sync",
+                "Parameters": {
+                  "JobName": "products_translated_job"
+                },
+                "End": true
+              }
+            }
+          },
+          {
+            "StartAt": "products_job",
+            "States": {
+              "products_job": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::glue:startJobRun.sync",
+                "Parameters": {
+                  "JobName": "products_job"
+                },
+                "End": true
+              }
+            }
+          },
+          {
+            "StartAt": "orders_job",
+            "States": {
+              "orders_job": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::glue:startJobRun.sync",
+                "Parameters": {
+                  "JobName": "orders_job"
+                },
+                "End": true
+              }
+            }
+          },
+          {
+            "StartAt": "order_reviews_job",
+            "States": {
+              "order_reviews_job": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::glue:startJobRun.sync",
+                "Parameters": {
+                  "JobName": "order_reviews_job"
+                },
+                "End": true
+              }
+            }
+          },
+          {
+            "StartAt": "order_payments_job",
+            "States": {
+              "order_payments_job": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::glue:startJobRun.sync",
+                "Parameters": {
+                  "JobName": "order_payments_job"
+                },
+                "End": true
+              }
+            }
+          },
+          {
+            "StartAt": "orders_items_job",
+            "States": {
+              "orders_items_job": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::glue:startJobRun.sync",
+                "Parameters": {
+                  "JobName": "orders_items_job"
+                },
+                "End": true
+              }
+            }
+          },
+          {
+            "StartAt": "geolocation_job",
+            "States": {
+              "geolocation_job": {
+                "Type": "Task",
+                "Resource": "arn:aws:states:::glue:startJobRun.sync",
+                "Parameters": {
+                  "JobName": "geolocation_job"
+                },
+                "End": true
+              }
+            }
+          }
+        ]
+      },
+      "preprocessing_job": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::glue:startJobRun.sync",
+        "Parameters": {
+          "JobName": "preprocessing_job"
+        },
+        "Next": "ECS RunTask"
+      },
+      "ECS RunTask": {
+        "Type": "Task",
+        "Resource": "arn:aws:states:::ecs:runTask.sync",
+        "Parameters": {
+          "LaunchType": "FARGATE",
+          "Cluster": "arn:aws:ecs:us-east-1:421189326716:cluster/pfe-grp6-cluster",
+          "TaskDefinition": "arn:aws:ecs:us-east-1:421189326716:task-definition/pfe-grp6-task:4",
+          "NetworkConfiguration": {
+            "AwsvpcConfiguration": {
+              "Subnets": [
+                "subnet-03ae8d9fbe86b6fed",
+                "subnet-091e5089ff0ee3457",
+                "subnet-06856f2e338400d45",
+                "subnet-0ebecff99fd656ec7",
+                "subnet-083562547ce2670cd",
+                "subnet-07907f7c2a263479c",
+                "subnet-0b9aa15dda8bca875"
+              ],
+              "SecurityGroups": [
+                "sg-01e6a4e18a1a0c7e0"
+              ],
+              "AssignPublicIp": "ENABLED"
+            }
+          }
+        },
+        "End": true
+      }
+    }
+  }
