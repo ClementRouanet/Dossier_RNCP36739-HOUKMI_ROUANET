@@ -36,9 +36,7 @@ L'objectif de notre classeur est de pouvoir rendre compte des tendances de vente
 
 3. Fichier ***adidas sales*** : classeur Tableau contenant les données, le DashBoard final ainsi que toutes les feuilles ayant permis sa réalisation et le rapport avec les conclusions faites suite à l'analyse du DashBoard.
 
-
-<br>
-<br>
 <br>
 
+## DashBoard créé
 ![image](https://github.com/user-attachments/assets/083004fb-053c-4987-a937-cc89596e41cc)
