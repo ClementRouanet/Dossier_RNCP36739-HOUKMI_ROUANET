@@ -10,7 +10,7 @@ ROUANET Clément
 <br>
 
 ## Sujet
-Le projet consiste donc à trouver et choisir un jeu de données réel dans l'objectif de les utiliser pour créer un Dashboard permettant de tirer des conclusions, de mettre en évidence des phénomènes.
+Le projet consiste donc à trouver et choisir un jeu de données réel dans l'objectif de les utiliser pour créer un Dashboard dynamique permettant de tirer des conclusions, de mettre en évidence des phénomènes.
 
 <br>
 
