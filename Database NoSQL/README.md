@@ -48,67 +48,67 @@ Paramètre d’un groupe :
 <br>
 
 ***3. Spécifications fonctionnelles*** : <br>
-       *Utilisateurs (CRUDS)*
-          - Vous devez définir les attributs d’un utilisateur
-          - Il ne peut pas y avoir deux utilisateurs avec le même email
+*Utilisateurs (CRUDS)*
+   - Vous devez définir les attributs d’un utilisateur
+   - Il ne peut pas y avoir deux utilisateurs avec le même email
 
-       *Événements (CRUDS)*
-          - Un événement peut avoir une multitude de participants
-          - Un événement est géré par 1 ou plusieurs organisateurs
+*Événements (CRUDS)*
+- Un événement peut avoir une multitude de participants
+- Un événement est géré par 1 ou plusieurs organisateurs
 
-       *Groupes (CRUDS)*
-          - Un groupe possède 1 ou plusieurs membres
-          - Un groupe est géré par 1 ou plusieurs administrateurs
+*Groupes (CRUDS)*
+- Un groupe possède 1 ou plusieurs membres
+- Un groupe est géré par 1 ou plusieurs administrateurs
 
-       *Les fils de discussions (CRUDS)*
-          - Un fil de discussion peut être lié à 1 groupe ou 1 événement mais pas les deux
-          - Un fil de discussion contient 0 ou plusieurs messages créés par un membre ou un administrateur/organisateur
-          - Chaque membre/participant peut commenter un message
+*Les fils de discussions (CRUDS)*
+- Un fil de discussion peut être lié à 1 groupe ou 1 événement mais pas les deux
+- Un fil de discussion contient 0 ou plusieurs messages créés par un membre ou un administrateur/organisateur
+- Chaque membre/participant peut commenter un message
 
-       *Albums photo (CRUDS)*
-          - Un album photo est associé à 1 événement
-          - Chaque album photo contient 0 ou plusieurs photos postées par 1 participant de l’événement
-          - Ces photos peuvent être commentées par 0 ou plusieurs participants de l’événement
+*Albums photo (CRUDS)*
+- Un album photo est associé à 1 événement
+- Chaque album photo contient 0 ou plusieurs photos postées par 1 participant de l’événement
+- Ces photos peuvent être commentées par 0 ou plusieurs participants de l’événement
 
-       *Sondages (CRUDS)*
-          - Un événement peut avoir 0 ou plusieurs sondages créés par un organisateur
-          - Un sondage comporte 1 ou plusieurs questions
-          - Pour chaque question, il existe plusieurs réponses possibles mais uniquement 1 peut être choisie
-          - Chaque participant de l’événement peut répondre aux différents sondages en choisissant pour chaque question sa réponse
+*Sondages (CRUDS)*
+- Un événement peut avoir 0 ou plusieurs sondages créés par un organisateur
+- Un sondage comporte 1 ou plusieurs questions
+- Pour chaque question, il existe plusieurs réponses possibles mais uniquement 1 peut être choisie
+- Chaque participant de l’événement peut répondre aux différents sondages en choisissant pour chaque question sa réponse
 
-       *Billetterie (CRUDS)*
-          - Certains événements publiques possèdent une billetterie
-          - Un organisateur peut décider de créer 1 ou plusieurs types de billets à sa convenance
-          - Un type de billet contient :
-             - Un nom
-             - Un montant
-             - Une quantité limité de billet
-             - Une personne extérieure peut obtenir 1 seul billet.
+*Billetterie (CRUDS)*
+- Certains événements publiques possèdent une billetterie
+- Un organisateur peut décider de créer 1 ou plusieurs types de billets à sa convenance
+- Un type de billet contient :
+- Un nom
+- Un montant
+- Une quantité limité de billet
+- Une personne extérieure peut obtenir 1 seul billet.
 
-          Pour chaque billet acheté, on définira :
-             - Un type de billet (ceux créés par l’organisateur)
-             - Les données de la personne
-             - Nom
-             - Prénom
-             - Adresse complète
-             - Date d’achat
+Pour chaque billet acheté, on définira :
+- Un type de billet (ceux créés par l’organisateur)
+- Les données de la personne
+- Nom
+- Prénom
+- Adresse complète
+- Date d’achat
 
-       *Shopping list (CRUDS)*
-          Lors d’un événement si la shopping list est activée, un utilisateur peut indiquer ce qu’il va apporter à l’événement. 
-          Pour cela il indique:
-             - Un nom
-             - Une quantité
-             - Une heure d’arrivée à l’événement
-             - Chaque chose apporté doit être unique par événement
+*Shopping list (CRUDS)*
+Lors d’un événement si la shopping list est activée, un utilisateur peut indiquer ce qu’il va apporter à l’événement. 
+Pour cela il indique:
+- Un nom
+- Une quantité
+- Une heure d’arrivée à l’événement
+- Chaque chose apporté doit être unique par événement
    
-       *Covoiturage (CRUDS)*
-          Lors d’un événement si le covoiturage est activé, un utilisateur peut indiquer qu’il se rendra en voiture à l’événement.
-          Pour cela il indiquera :
-             - Un lieu de départ
-             - Une heure de départ
-             - Le prix proposé
-             - Le nombre de place disponible
-             - Le temps maximum d’écart (ex: sur un trajet de 2h30, 30min, ce qui donne un trajet max de 3h)
+*Covoiturage (CRUDS)*
+Lors d’un événement si le covoiturage est activé, un utilisateur peut indiquer qu’il se rendra en voiture à l’événement.
+Pour cela il indiquera :
+- Un lieu de départ
+- Une heure de départ
+- Le prix proposé
+- Le nombre de place disponible
+- Le temps maximum d’écart (ex: sur un trajet de 2h30, 30min, ce qui donne un trajet max de 3h)
 
 <br>
 
