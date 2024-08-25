@@ -51,31 +51,43 @@ Paramètre d’un groupe :
 *Utilisateurs (CRUDS)*
    - Vous devez définir les attributs d’un utilisateur
    - Il ne peut pas y avoir deux utilisateurs avec le même email
+
 <br>
+
 *Événements (CRUDS)*
 - Un événement peut avoir une multitude de participants
 - Un événement est géré par 1 ou plusieurs organisateurs
+
 <br>
+
 *Groupes (CRUDS)*
 - Un groupe possède 1 ou plusieurs membres
 - Un groupe est géré par 1 ou plusieurs administrateurs
+
 <br>
+
 *Les fils de discussions (CRUDS)*
 - Un fil de discussion peut être lié à 1 groupe ou 1 événement mais pas les deux
 - Un fil de discussion contient 0 ou plusieurs messages créés par un membre ou un administrateur/organisateur
 - Chaque membre/participant peut commenter un message
+
 <br>
+
 *Albums photo (CRUDS)*
 - Un album photo est associé à 1 événement
 - Chaque album photo contient 0 ou plusieurs photos postées par 1 participant de l’événement
 - Ces photos peuvent être commentées par 0 ou plusieurs participants de l’événement
+
 <br>
+
 *Sondages (CRUDS)*
 - Un événement peut avoir 0 ou plusieurs sondages créés par un organisateur
 - Un sondage comporte 1 ou plusieurs questions
 - Pour chaque question, il existe plusieurs réponses possibles mais uniquement 1 peut être choisie
 - Chaque participant de l’événement peut répondre aux différents sondages en choisissant pour chaque question sa réponse
+
 <br>
+
 *Billetterie (CRUDS)*
 - Certains événements publiques possèdent une billetterie
 - Un organisateur peut décider de créer 1 ou plusieurs types de billets à sa convenance
@@ -92,7 +104,9 @@ Pour chaque billet acheté, on définira :
 - Prénom
 - Adresse complète
 - Date d’achat
+
 <br>
+
 *Shopping list (CRUDS)*
 Lors d’un événement si la shopping list est activée, un utilisateur peut indiquer ce qu’il va apporter à l’événement. 
 Pour cela il indique:
@@ -100,7 +114,9 @@ Pour cela il indique:
 - Une quantité
 - Une heure d’arrivée à l’événement
 - Chaque chose apporté doit être unique par événement
+
 <br>
+
 *Covoiturage (CRUDS)*
 Lors d’un événement si le covoiturage est activé, un utilisateur peut indiquer qu’il se rendra en voiture à l’événement.
 Pour cela il indiquera :
