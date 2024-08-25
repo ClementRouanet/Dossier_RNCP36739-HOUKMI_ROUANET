@@ -107,7 +107,7 @@ Pour chaque billet acheté, on définira :
 
 <br>
 
-*Shopping list (CRUDS)*
+*Shopping list (CRUDS)* <br>
 Lors d’un événement si la shopping list est activée, un utilisateur peut indiquer ce qu’il va apporter à l’événement. 
 Pour cela il indique:
 - Un nom
@@ -117,7 +117,8 @@ Pour cela il indique:
 
 <br>
 
-*Covoiturage (CRUDS)*
+*Covoiturage (CRUDS)* <br>
+
 Lors d’un événement si le covoiturage est activé, un utilisateur peut indiquer qu’il se rendra en voiture à l’événement.
 Pour cela il indiquera :
 - Un lieu de départ
