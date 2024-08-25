@@ -10,7 +10,7 @@ ROUANET Clément
 <br>
 
 ## Sujet
-Le projet consiste donc à trouver et choisir un jeu de données réel dans l'objectif de les utiliser pour créer un Dashboard permettant de tirer des conclusions, de mettre en évidence des phénomènes.
+Le projet consiste donc à trouver et choisir un jeu de données réel dans l'objectif de les utiliser pour créer un Dashboard dynamique permettant de tirer des conclusions, de mettre en évidence des phénomènes.
 
 <br>
 
@@ -36,9 +36,7 @@ L'objectif de notre classeur est de pouvoir rendre compte des tendances de vente
 
 3. Fichier ***adidas sales*** : classeur Tableau contenant les données, le DashBoard final ainsi que toutes les feuilles ayant permis sa réalisation et le rapport avec les conclusions faites suite à l'analyse du DashBoard.
 
-
-<br>
-<br>
 <br>
 
-***RAJOUTER IMAGE DASHBOARD***
+## DashBoard créé
+![image](https://github.com/user-attachments/assets/083004fb-053c-4987-a937-cc89596e41cc)

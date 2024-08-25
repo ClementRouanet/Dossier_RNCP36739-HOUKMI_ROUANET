@@ -1,0 +1,81 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Terraform",
+    "collectionId": "61a44b88-72ef-4596-a64f-169963a35652",
+    "dateExported": "2024-07-07T17:44:33.828Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9cacc9ab-5f86-4b15-9991-086567004353",
+            "colId": "61a44b88-72ef-4596-a64f-169963a35652",
+            "containerId": "",
+            "name": "Récupérer articles",
+            "url": "http://40.85.183.31:5000/articles",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-07-06T16:00:39.756Z",
+            "modified": "2024-07-07T17:23:51.732Z",
+            "headers": []
+        },
+        {
+            "_id": "95711324-8962-420a-99ec-c66fd638344b",
+            "colId": "61a44b88-72ef-4596-a64f-169963a35652",
+            "containerId": "",
+            "name": "Rajouter article",
+            "url": "http://40.85.183.31:5000/articles",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-07-06T16:13:07.299Z",
+            "modified": "2024-07-07T17:23:56.617Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 3, \n  \"title\": \"hello\", \n  \"content\": \"dire bonjour\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "6cbe0b14-2571-45d0-b597-9ff22146b1c7",
+            "colId": "61a44b88-72ef-4596-a64f-169963a35652",
+            "containerId": "",
+            "name": "Récupérer article",
+            "url": "http://40.85.183.31:5000/articles/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-07-07T17:44:14.779Z",
+            "modified": "2024-07-07T17:44:29.746Z",
+            "headers": []
+        },
+        {
+            "_id": "cba966ff-45d2-43bf-ac84-88a8641cece6",
+            "colId": "61a44b88-72ef-4596-a64f-169963a35652",
+            "containerId": "",
+            "name": "MAJ article",
+            "url": "http://40.85.183.31:5000/articles/2",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-07-06T16:15:33.650Z",
+            "modified": "2024-07-07T17:24:00.857Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"hello world\", \n  \"content\": \"dire bonjour au monde\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b43eece0-1c52-4895-983c-1ad200c4085f",
+            "colId": "61a44b88-72ef-4596-a64f-169963a35652",
+            "containerId": "",
+            "name": "Supprimer article",
+            "url": "http://40.85.183.31:5000/articles/3",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-07-06T16:16:50.209Z",
+            "modified": "2024-07-07T17:24:05.133Z",
+            "headers": []
+        }
+    ],
+    "ref": "PlLzDPtmg_GTwZOlClQuT7ZOy266giQyB7wfERLX0-GmdBFu87rIhExLphyYjTrAApqDwKWM4XSxxZ1IVqlh4g"
+}
