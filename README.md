@@ -7,8 +7,8 @@
 
 ## EFREI PARIS <br> Mastère Data Engineering & AI 
 
-HOUKMI Salaheddine  
-ROUANET Clément  
+**HOUKMI Salaheddine**
+**ROUANET Clément**
 
 <br>
 
