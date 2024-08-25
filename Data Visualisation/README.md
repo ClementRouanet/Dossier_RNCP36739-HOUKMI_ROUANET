@@ -41,4 +41,4 @@ L'objectif de notre classeur est de pouvoir rendre compte des tendances de vente
 <br>
 <br>
 
-***RAJOUTER IMAGE DASHBOARD***
+![image](https://github.com/user-attachments/assets/083004fb-053c-4987-a937-cc89596e41cc)
