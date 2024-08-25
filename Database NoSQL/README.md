@@ -17,7 +17,7 @@ Vous devez réaliser les requêtes appropriées pour interroger et mettre à jou
 <br>
 
 ## Cahier des charges
-1. ***Avant l’événement*** :
+1. ***Avant l’événement*** : 
 Chaque organisateur pourra facilement créer des événements.
 L’utilisateur configure son événement avec les informations essentielles :
    - Nom
@@ -31,7 +31,7 @@ L’utilisateur configure son événement avec les informations essentielles :
 
 <br>
 
-2. ***Les groupes*** :
+2. ***Les groupes*** : 
 Facebook permet de créer votre groupe secret, privé ou publique afin d’y créer des événements en invitant automatiquement l’ensemble des membres.
 En effet, dans un groupe, la création d’événements se veut simplifiée en permettant l’invitation de tous les membres en un clic. Au sein d’un groupe publique, les organisateurs d’événements pourront s’ils le souhaitent partager leurs événements sur les autres réseaux sociaux afin de les aider dans la communication des événements.
 Au sein de chaque groupe, un fil de discussion sera mis à disposition des utilisateurs afin de discuter entre eux.
